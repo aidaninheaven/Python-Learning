@@ -1,0 +1,175 @@
+aidanName = 'Aidan Rodriguez'
+aidanAge = 17.17
+aidanLicense = False
+aidanEmail = '267922@burlcoschools.org'
+aidanGrade = 11
+
+
+
+ryanName = 'Ryan Stiles'
+ryanAge = 17.33
+ryanLicense = True
+ryanEmail = '267947@burlcoschools.org'
+ryanGrade = 11
+
+
+
+shahoodName = 'Shahood Alvi'
+shahoodAge = 17.08
+shahoodLicense = False
+shahoodEmail = '267741@burlcoschools.org'
+shahoodGrade = 11
+
+
+
+muntagName = 'Muntag Diallo'
+muntagAge = 16.13
+muntagLicense = False
+muntagEmail = '268154@burlcoschools.org'
+muntagGrade = 11
+
+
+
+marcosName = 'Marcos Paulino'
+marcosAge = 16.73
+marcosLicense = False
+marcosEmail = '267895@burlcoschools.org'
+marcosGrade = 11
+
+
+
+leoName = 'Leo Hart'
+leoAge = 17.02
+leoLicense = True
+leoEmail = '268095@burlcoschools.org'
+leoGrade = 11
+
+
+
+masonName = 'Mason Bush'
+masonAge = 17.08
+masonLicense = False
+masonEmail = '268262@burlcoschools.org'
+masonGrade = 11
+
+
+
+chrisName = 'Christopher Hodson'
+chrisAge = 17.12
+chrisLicense = False
+chrisEmail = '268359@burlcoschools.org'
+chrisGrade = 11
+
+
+
+nathanName = 'Nathan Carn'
+nathanAge = 16.98
+nathanLicense = False
+nathanEmail = '268021@burlcoschools.org'
+nathanGrade = 11
+
+
+
+gavinName = 'Gavin Carnivale'
+gavinAge = 17.04
+gavinLicense = True
+gavinEmail = '267764@burlcoschools.org'
+gavinGrade = 11
+
+
+
+jaidenName = 'Jaiden Rankus'
+jaidenAge = 16.44
+jaidenLicense = False
+jaidenEmail = '268188@burlcoschools.org'
+jaidenGrade = 11
+
+
+
+print('----------------------------------------------')
+print(' Name = ' + aidanName )
+print(' Age = ' + str(aidanAge) )
+print(' License = ' + str(aidanLicense) )
+print(' Email = ' + aidanEmail )
+print(' Grade = ' + str(aidanGrade) )
+print('----------------------------------------------')
+
+print('----------------------------------------------')
+print(' Name = ' + leoName )
+print(' Age = ' + str(leoAge) )
+print(' License = ' + str(leoLicense) )
+print(' Email = ' + leoEmail )
+print(' Grade = ' + str(leoGrade) )
+print('----------------------------------------------')
+
+print('----------------------------------------------')
+print(' Name = ' + masonName )
+print(' Age = ' + str(masonAge) )
+print(' License = ' + str(masonLicense) )
+print(' Email = ' + masonEmail )
+print(' Grade = ' + str(aidanGrade) )
+print('----------------------------------------------')
+
+print('----------------------------------------------')
+print(' Name = ' + jaidenName )
+print(' Age = ' + str(jaidenAge) )
+print(' License = ' + str(jaidenLicense) )
+print(' Email = ' + jaidenEmail )
+print(' Grade = ' + str(aidanGrade) )
+print('----------------------------------------------')
+
+print('----------------------------------------------')
+print(' Name = ' + chrisName )
+print(' Age = ' + str(chrisAge) )
+print(' License = ' + str(chrisLicense) )
+print(' Email = ' + chrisEmail )
+print(' Grade = ' + str(aidanGrade) )
+print('----------------------------------------------')
+
+print('----------------------------------------------')
+print(' Name = ' + ryanName )
+print(' Age = ' + str(ryanAge) )
+print(' License = ' + str(ryanLicense) )
+print(' Email = ' + ryanEmail )
+print(' Grade = ' + str(aidanGrade) )
+print('----------------------------------------------')
+
+print('----------------------------------------------')
+print(' Name = ' + muntagName )
+print(' Age = ' + str(muntagAge) )
+print(' License = ' + str(muntagLicense) )
+print(' Email = ' + muntagEmail )
+print(' Grade = ' + str(aidanGrade) )
+print('----------------------------------------------')
+
+print('----------------------------------------------')
+print(' Name = ' + shahoodName )
+print(' Age = ' + str(shahoodAge) )
+print(' License = ' + str(shahoodLicense) )
+print(' Email = ' + shahoodEmail )
+print(' Grade = ' + str(aidanGrade) )
+print('----------------------------------------------')
+
+print('----------------------------------------------')
+print(' Name = ' + gavinName )
+print(' Age = ' + str(gavinAge) )
+print(' License = ' + str(gavinLicense) )
+print(' Email = ' + gavinEmail )
+print(' Grade = ' + str(gavinGrade) )
+print('----------------------------------------------')
+
+print('----------------------------------------------')
+print(' Name = ' + nathanName )
+print(' Age = ' + str(nathanAge) )
+print(' License = ' + str(nathanLicense) )
+print(' Email = ' + nathanEmail )
+print(' Grade = ' + str(aidanGrade) )
+print('----------------------------------------------')
+
+print('----------------------------------------------')
+print(' Name = ' + marcosName )
+print(' Age = ' + str(marcosAge) )
+print(' License = ' + str(marcosLicense) )
+print(' Email = ' + marcosEmail )
+print(' Grade = ' + str(marcosGrade) )
+print('----------------------------------------------')
