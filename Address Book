@@ -1,3 +1,6 @@
+
+#variables for each person
+
 aidanName = 'Aidan Rodriguez'
 aidanAge = 17.17
 aidanLicense = False
@@ -84,7 +87,7 @@ jaidenLicense = False
 jaidenEmail = '268188@burlcoschools.org'
 jaidenGrade = 11
 
-
+#printing everyone's information in an id card format. variables that are not strings are converted into strings.
 
 print('----------------------------------------------')
 print(' Name = ' + aidanName )
