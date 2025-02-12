@@ -1,1 +1,88 @@
 
+import random
+
+print("GROUP PICKER 3000")
+print("----------------------")
+
+students = [
+    "Aidan", "Marcos", "Isabella", "Ryan", "Mason", "Jaiden", "Shahood", "Sean",
+    "Leo", "Chris", "Nathan", "Gavin", "Devin", "Antonio", "Chu", "Jarred",
+    "Muntag", "Carrell", "Jackson", "Asher"
+]
+
+print("Students:", students, "\n")
+
+
+restrictedStudent1 = input("Please input the first restricted student in pair 1 (Ex. \"Aidan\"): ")
+restrictedStudent2 = input("Please input the second restricted student in pair 1 (Ex. \"Marcos\"): ")
+
+restrictedStudent3 = input("Please input the first restricted student in pair 2 (Ex. \"Chris\"): ")
+restrictedStudent4 = input("Please input the second restricted student in pair 2 (Ex. \"Nathan\"): ")
+
+
+firstRestrictions = {(restrictedStudent1, restrictedStudent2)}
+secondRestrictions = {(restrictedStudent3, restrictedStudent4)}
+
+
+allRestrictions = firstRestrictions | secondRestrictions  
+
+userInput = input("Enter the number of students per group (2, 3, 4): ")
+
+groupsWork = False
+if userInput == '2':
+    while not groupsWork:
+        random.shuffle(students)
+        groups2 = [students[i:i+2] for i in range(0, len(students), 2)]
+        groupsWork = True
+
+        for group in groups2:
+            if len(group) == 2:
+                a, b = group
+                if (a, b) in allRestrictions or (b, a) in allRestrictions:
+                    groupsWork = False
+                    break
+
+    print("Groups of 2:")
+    print(groups2)
+
+elif userInput == '3':
+    while not groupsWork:
+        random.shuffle(students)
+        groups3 = [students[i:i+3] for i in range(0, len(students), 3)]
+        groupsWork = True  
+
+        for group in groups3:
+            if len(group) == 3:
+                a, b, c = group
+                if ((a, b) in allRestrictions or (b, a) in allRestrictions or
+                    (a, c) in allRestrictions or (c, a) in allRestrictions or
+                    (b, c) in allRestrictions or (c, b) in allRestrictions):
+                    groupsWork = False
+                    break
+
+    print("Groups of 3:")
+    print(groups3)
+
+elif userInput == '4':
+    while not groupsWork:
+        random.shuffle(students)
+        groups4 = [students[i:i+4] for i in range(0, len(students), 4)]
+        groupsWork = True  
+
+        for group in groups4:
+            if len(group) == 4:
+                a, b, c, d = group
+                if ((a, b) in allRestrictions or (b, a) in allRestrictions or
+                    (a, c) in allRestrictions or (c, a) in allRestrictions or
+                    (a, d) in allRestrictions or (d, a) in allRestrictions or
+                    (b, c) in allRestrictions or (c, b) in allRestrictions or
+                    (b, d) in allRestrictions or (d, b) in allRestrictions or
+                    (c, d) in allRestrictions or (d, c) in allRestrictions):
+                    groupsWork = False
+                    break
+
+    print("Groups of 4:")
+    print(groups4)
+
+else:
+    print("Input must be in groups of 2, 3, or 4.")
