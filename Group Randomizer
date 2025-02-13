@@ -1,88 +1,158 @@
-
 import random
 
 print("GROUP PICKER 3000")
 print("----------------------")
+#
+GPrunning = True
+while GPrunning:
 
-students = [
-    "Aidan", "Marcos", "Isabella", "Ryan", "Mason", "Jaiden", "Shahood", "Sean",
-    "Leo", "Chris", "Nathan", "Gavin", "Devin", "Antonio", "Chu", "Jarred",
-    "Muntag", "Carrell", "Jackson", "Asher"
-]
+    students = [
+        "Aidan", "Marcos", "Isabella", "Ryan", "Mason", "Jaiden", "Shahood", "Sean",
+        "Leo", "Chris", "Nathan", "Gavin", "Devin", "Antonio", "Chu", "Jarred",
+        "Muntag", "Carrell", "Jackson", "Asher"
+    ]
+    
+    print("Students List:", students, "\n")
 
-print("Students:", students, "\n")
+    # code for inputting restrictions, with loops to ensure that they input a valid student
+    while True:
+        restrictedinput1 = input("Please input the first restricted student in pair 1 (Ex. Aidan): ")
+        if restrictedinput1 in students:
+            break
+        else:
+            print("Invalid Name!")
+
+    while True:
+        restrictedinput2 = input("Please input the second restricted student in pair 1 (Ex. Marcos): ")
+        if restrictedinput2 in students:
+            break
+        else:
+            print("Invalid Name!")
+
+    while True:
+        restrictedinput3 = input("Please input the first restricted student in pair 2 (Ex. Chris): ")
+        if restrictedinput3 in students:
+            break
+        else:
+            print("Invalid Name!")
+
+    while True:
+        restrictedinput4 = input("Please input the second restricted student in pair 2 (Ex. Nathan): ")
+        if restrictedinput4 in students:
+            break
+        else:
+            print("Invalid Name!")
+
+    #puts quotes around the inputted restrictions to make it work with the list
+    restrictedStudent1 = '"' + restrictedinput1 + '"'
+    restrictedStudent2 = '"' + restrictedinput2 + '"'
+
+    restrictedStudent3 = '"' + restrictedinput3 + '"'
+    restrictedStudent4 = '"' + restrictedinput4 + '"'
 
 
-restrictedStudent1 = input("Please input the first restricted student in pair 1 (Ex. \"Aidan\"): ")
-restrictedStudent2 = input("Please input the second restricted student in pair 1 (Ex. \"Marcos\"): ")
+    firstRestrictions = {(restrictedStudent1, restrictedStudent2)}
+    secondRestrictions = {(restrictedStudent3, restrictedStudent4)}
 
-restrictedStudent3 = input("Please input the first restricted student in pair 2 (Ex. \"Chris\"): ")
-restrictedStudent4 = input("Please input the second restricted student in pair 2 (Ex. \"Nathan\"): ")
+    allRestrictions = firstRestrictions | secondRestrictions  #merging the two restriction lists together
+
+    groupsWork = False
+
+#code for looping the user input, makes sure the input is either 2, 3, or 4.
+    while True:
+        userInput = input("Enter the number of students per group (2, 3, 4): ")
+
+        if userInput == '2':
+            #code for creating groups of two students
+            while not groupsWork:
+                random.shuffle(students)
+                groups2 = [students[i:i+2] for i in range(0, len(students), 2)] #code for dividing the list into groups of 2
+                groupsWork = True
+
+                for group in groups2: #checking all possible combinations of students 
+                    if len(group) == 2:
+                        a, b = group
+                        if (a, b) in allRestrictions or (b, a) in allRestrictions: #if restrictions apply, groupsWork is set to false and the while not groupsWork reset
+                            groupsWork = False
+                            break
+
+            print("Groups of 2:")
+            for groups in groups2:
+                print(groups)
+            break
 
 
-firstRestrictions = {(restrictedStudent1, restrictedStudent2)}
-secondRestrictions = {(restrictedStudent3, restrictedStudent4)}
+        elif userInput == '3':
+            #code for groups of 3 with 2 groups of 4
+            while not groupsWork:
+                random.shuffle(students)
+                groups3 = [students[i:i+3] for i in range(0, len(students), 3)] #code for dividing the list into groups of 3
+                
+                if len(students) % 3 == 2: #checks remainder of students, makes sure its equal to 2
+                    lastGroup = groups3.pop() #removes the last group using pop()
+                    remainingStudents = lastGroup 
+                    for group in groups3:
+                        if len(group) == 3: #checks all possible combinations of students in the groups of 3
+                            a, b, c = group 
+                            if ((a, b) in allRestrictions or (b, a) in allRestrictions or
+                                    (a, c) in allRestrictions or (c, a) in allRestrictions or
+                                    (b, c) in allRestrictions or (c, b) in allRestrictions): #if restrictions apply, groupsWork is set to false and the while not groupsWork reset
+                                groupsWork = False
+
+                    if len(remainingStudents) == 2: #puts the remaining students into the last and second to last group
+                        group1 = groups3[-1] + [remainingStudents[0]]
+                        group2 = groups3[-2] + [remainingStudents[1]]
+                        groups3[-1] = group1
+                        groups3[-2] = group2
+                        groupsWork = True
+                    else:
+                        groupsWork = False  
+
+            print("Groups of 3:")
+            for groups in groups3:
+                print(groups)
+            break
 
 
-allRestrictions = firstRestrictions | secondRestrictions  
+        elif userInput == '4':
+            #code of groups of 3
+            while not groupsWork:
+                random.shuffle(students)
+                groups4 = [students[i:i+4] for i in range(0, len(students), 4)] #code for dividing the list into groups of 4
+                groupsWork = True  
 
-userInput = input("Enter the number of students per group (2, 3, 4): ")
+                for group in groups4:
+                    if len(group) == 4: #checks all possible combinations of students in the groups of 4
+                        a, b, c, d = group
+                        if ((a, b) in allRestrictions or (b, a) in allRestrictions or
+                                (a, c) in allRestrictions or (c, a) in allRestrictions or
+                                (a, d) in allRestrictions or (d, a) in allRestrictions or
+                                (b, c) in allRestrictions or (c, b) in allRestrictions or
+                                (b, d) in allRestrictions or (d, b) in allRestrictions or
+                                (c, d) in allRestrictions or (d, c) in allRestrictions): #if restrictions apply, groupsWork is set to false and the while not groupsWork reset
+                            groupsWork = False
+                            break
 
-groupsWork = False
-if userInput == '2':
-    while not groupsWork:
-        random.shuffle(students)
-        groups2 = [students[i:i+2] for i in range(0, len(students), 2)]
-        groupsWork = True
+            print("Groups of 4:")
+            for groups in groups4:
+                print(groups)
+            break
 
-        for group in groups2:
-            if len(group) == 2:
-                a, b = group
-                if (a, b) in allRestrictions or (b, a) in allRestrictions:
-                    groupsWork = False
-                    break
+        else:
+            print("Input must be in groups of 2, 3, or 4.")
+            continue  
 
-    print("Groups of 2:")
-    print(groups2)
+    #code for asking for continuation, if Y, the code loops. if N, the code stops.
+    while True:
+        gameContinue = input("Would you like to reselect groups? (Y/N): ")
+        print("\n")
+        if gameContinue == 'Y':
+            GPrunning = True  
+            break 
 
-elif userInput == '3':
-    while not groupsWork:
-        random.shuffle(students)
-        groups3 = [students[i:i+3] for i in range(0, len(students), 3)]
-        groupsWork = True  
+        elif gameContinue == 'N':
+            GPrunning = False  
+            break
 
-        for group in groups3:
-            if len(group) == 3:
-                a, b, c = group
-                if ((a, b) in allRestrictions or (b, a) in allRestrictions or
-                    (a, c) in allRestrictions or (c, a) in allRestrictions or
-                    (b, c) in allRestrictions or (c, b) in allRestrictions):
-                    groupsWork = False
-                    break
-
-    print("Groups of 3:")
-    print(groups3)
-
-elif userInput == '4':
-    while not groupsWork:
-        random.shuffle(students)
-        groups4 = [students[i:i+4] for i in range(0, len(students), 4)]
-        groupsWork = True  
-
-        for group in groups4:
-            if len(group) == 4:
-                a, b, c, d = group
-                if ((a, b) in allRestrictions or (b, a) in allRestrictions or
-                    (a, c) in allRestrictions or (c, a) in allRestrictions or
-                    (a, d) in allRestrictions or (d, a) in allRestrictions or
-                    (b, c) in allRestrictions or (c, b) in allRestrictions or
-                    (b, d) in allRestrictions or (d, b) in allRestrictions or
-                    (c, d) in allRestrictions or (d, c) in allRestrictions):
-                    groupsWork = False
-                    break
-
-    print("Groups of 4:")
-    print(groups4)
-
-else:
-    print("Input must be in groups of 2, 3, or 4.")
+        else: 
+            print("Answer must be Y or N.")
