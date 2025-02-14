@@ -19,12 +19,16 @@ while GPrunning:
         restrictedinput1 = input("Please input the first restricted student in pair 1 (Ex. Aidan): ")
         if restrictedinput1 in students:
             break
+        elif restrictedinput1 == "None" or "none":
+            break
         else:
             print("Invalid Name!")
 
     while True:
         restrictedinput2 = input("Please input the second restricted student in pair 1 (Ex. Marcos): ")
         if restrictedinput2 in students:
+            break
+        elif restrictedinput2 == "None" or "none":
             break
         else:
             print("Invalid Name!")
@@ -33,12 +37,16 @@ while GPrunning:
         restrictedinput3 = input("Please input the first restricted student in pair 2 (Ex. Chris): ")
         if restrictedinput3 in students:
             break
+        elif restrictedinput3 == "None" or "none":
+            break
         else:
             print("Invalid Name!")
 
     while True:
         restrictedinput4 = input("Please input the second restricted student in pair 2 (Ex. Nathan): ")
         if restrictedinput4 in students:
+            break
+        elif restrictedinput4 == "None" or "none":
             break
         else:
             print("Invalid Name!")
